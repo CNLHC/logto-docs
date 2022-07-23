@@ -72,10 +72,8 @@ Node natively supports HTTPS. Provide **BOTH** `HTTPS_CERT_PATH` and `HTTPS_KEY_
 
 Another common practice is to have an HTTPS proxy in front of Node (E.g. Nginx).
 
-
 In this case, you're likely want to set `TRUST_PROXY_HEADER` to `true` which indicates if proxy header fields should be trusted. Logto will pass the value to [Koa app settings](https://github.com/koajs/koa/blob/master/docs/api/index.md#settings).
 
 Another thing you should pay attention to is to set the `X-Forwarded-Proto` header to `https` in your proxy. Even if you set `Endpoint` variables to a URL prefixed with `https://`, the backend still relies on that de-facto header to know your application is running behind an https proxy. If you forget to set this header, the browser may throw a `Mixed Content` error and you are not able to login to the console.
 
 See [Trusting TLS offloading proxies](https://github.com/panva/node-oidc-provider/blob/main/docs/README.md#trusting-tls-offloading-proxies) for when to configure this field.
-
